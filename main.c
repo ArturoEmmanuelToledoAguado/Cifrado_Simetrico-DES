@@ -50,14 +50,30 @@ int main() {
     }
     //Recorrimientos
     //L
-    int auxL=0,auxR=0;
+    int auxL=0;
     for(int i=0;i<28;i++){
-        if(i==0)
-            auxL = L[i];
-        else if(i==27)
+        if(i==0) {
+            auxL=L[i];
+        }
+        else if(i==27) {
             L[i]=auxL;
+        }
         L[i]=L[i+1];
         printf("%i\n",L[i]);
+    }
+    //R
+    int auxR=0;
+    for(int j=0;j<28;j++){
+        if(j==0) {
+            auxR = R[j];
+            R[j]=R[j+1];
+        }
+        else if(j==27) {
+            R[j] = auxR;
+            //printf("\t\t%i\n",auxR);
+        } else
+            R[j]=R[j+1];
+        printf("\t %i\n",R[j]);
     }
 
     return 0;
