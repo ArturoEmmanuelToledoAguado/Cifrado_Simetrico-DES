@@ -65,6 +65,18 @@ int main() {
             R[i]=R[i+1];}
         //printf("%i\t%i\n",L[i],R[i]);
     }
+    //Se rehace Key a partir de L y R desplazadas
+    for(int i=0;i<56;i++){
+        if(i<28)
+            key[i]=L[i];
+        else
+            key[i]=R[i-28];
+        printf("%i\n",key[i]);
+    }
+    //Tabla de compresion de clave
+    /*int cClave[48];
+    for(int i=0;i<48;i++){
 
+    }*/
     return 0;
 }
