@@ -71,12 +71,13 @@ int main() {
             key[i]=L[i];
         else
             key[i]=R[i-28];
-        printf("%i\n",key[i]);
+        //printf("%i\n",key[i]);
     }
-    //Tabla de compresion de clave
-    /*int cClave[48];
+    //Se aplica la tabla de compresion de clave
+    int cClave[48];
     for(int i=0;i<48;i++){
-
-    }*/
+        cClave[i]=key[tCompresionC[i]-1];
+        //printf("%i\n",cClave[i]);
+    }
     return 0;
 }
