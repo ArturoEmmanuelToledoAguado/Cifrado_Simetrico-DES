@@ -48,6 +48,17 @@ int main() {
         R[i]=key[28+i];
         //printf("%i\t%i\n",L[i],R[i]);
     }
+    //Recorrimientos
+    //L
+    int auxL=0,auxR=0;
+    for(int i=0;i<28;i++){
+        if(i==0)
+            auxL = L[i];
+        else if(i==27)
+            L[i]=auxL;
+        L[i]=L[i+1];
+        printf("%i\n",L[i]);
+    }
 
     return 0;
 }
