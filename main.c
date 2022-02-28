@@ -18,6 +18,26 @@ int cPExpansion[]={32,1,2,3,4,5,4,5,6,7,8,9,8,9,10,11,
                    12,13,12,13,14,15,16,17,16,17,18,14,20,
                    21,20,21,22,23,24,25,24,25,26,27,28,29,
                    28,29,30,31,32,1};
+int cS4[4][16]={7,13,14,3,0,6,9,10,1,2,8,5,
+                11,12,4,15,13,8,11,5,6,15,0,3,
+                4,7,2,12,1,10,14,9,10,6,9,0,
+                12,11,7,13,15,1,3,14,5,2,8,
+                4,3,15,0,6,10,1,13,8,9,4,5,
+                11,12,7,2,14};
+
+//Binario a decimal
+unsigned long long binToDec(int *Bin, int tam){
+    unsigned long long decimal=0;
+    int mult=1;//multiplicador
+    int caracter;
+    for(int i=tam-1;i>=0;i--){
+        caracter=Bin[i];
+        if(caracter==1)
+            decimal+=mult;
+        mult=mult*2;
+    }
+    return decimal;
+}
 
 int main() {
     int entrada[64]={0,0,0,1,0,1,1,0,1,0,1,1,1,1,0,1,
@@ -107,5 +127,22 @@ int main() {
             B[i]=1;
         //printf("%i\n",B[i]);
     }
+    //Coordenadas de S4
+    //Separamos filas y columnas
+    int aux[6],auxf[2],auxc[4],cont=0;
+    for(int i=0;i<48;i++){
+        aux[cont]=B[i];
+        cont++;
+        if(i==5||i==11||i==17||i==23||i==29||i==35||i==41||i==47) {
+            for (int j = 0; j < 2; j++)
+                auxf[j] = aux[j * 5];//Obtenemos la Fila
+            for (int k = 0; k < 4; k++)
+                auxc[k] = aux[k + 1];//Obtenemos la Columna
+            cont=0;
+        }
+    }
+    //Convertimos a decimal
+    int f[8],c[8];
+    unsigned long long d;
     return 0;
 }
