@@ -190,5 +190,15 @@ int main() {
         Ri_Ki[i]=function[tPermutaD[i]-1];
         //printf("%i\n",Ri_Ki[i]);
     }
+
+    //XOR de Ri_Ki con lPermutation
+    int nRPermutation[32];
+    for(int i=0;i<32;i++){
+        if(Ri_Ki[i]==lPermutation[i])
+            nRPermutation[i]=0;
+        else
+            nRPermutation[i]=1;
+        printf("%i\n",nRPermutation[i]);
+    }
     return 0;
 }
