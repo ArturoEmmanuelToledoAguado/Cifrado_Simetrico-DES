@@ -98,5 +98,14 @@ int main() {
         R_i[i]=rPermutation[cPExpansion[i]-1];
         //printf("%i\n ",R_i[i]);
     }
+    //XOR entre R_i y cClave
+    int B[48];
+    for(int i=0;i<48;i++){
+        if(R_i[i]==cClave[i])
+            B[i]=0;
+        else
+            B[i]=1;
+        //printf("%i\n",B[i]);
+    }
     return 0;
 }
