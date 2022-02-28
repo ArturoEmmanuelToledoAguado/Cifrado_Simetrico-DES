@@ -14,6 +14,10 @@ int tCompresionC[]={14,17,11,24,1,5,3,28,15,6,21,10,23,19,
                     12,4,26,8,16,7,27,20,13,2,41,52,31,
                     37,47,55,30,40,51,45,33,48,44,49,39,56,
                     34,53,46,42,50,36,29,32};
+int cPExpansion[]={32,1,2,3,4,5,4,5,6,7,8,9,8,9,10,11,
+                   12,13,12,13,14,15,16,17,16,17,18,14,20,
+                   21,20,21,22,23,24,25,24,25,26,27,28,29,
+                   28,29,30,31,32,1};
 
 int main() {
     int entrada[64]={0,0,0,1,0,1,1,0,1,0,1,1,1,1,0,1,
@@ -79,5 +83,18 @@ int main() {
         cClave[i]=key[tCompresionC[i]-1];
         //printf("%i\n",cClave[i]);
     }
+
+    //Clave de ronda (Caja S)
+    //Separamos la entrada permutada en 32 bits de lado Derecho e Izquierdo
+    int lPermutation[32],rPermutation[32];
+    for(int i=0;i<32;i++){
+        lPermutation[i]=permutation[i];
+        rPermutation[i]=permutation[i+32];
+        //printf("%i\t%i\n",lPermutation[i],rPermutation[i]);
+    }
+    //Caja P de Expansión
+    /*for(int i=0;i<48;i++){
+        printf("%i\n ",cPExpansion[i]);
+    }*/
     return 0;
 }
