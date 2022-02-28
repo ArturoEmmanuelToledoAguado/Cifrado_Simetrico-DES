@@ -198,7 +198,14 @@ int main() {
             nRPermutation[i]=0;
         else
             nRPermutation[i]=1;
-        printf("%i\n",nRPermutation[i]);
+        //printf("%i\n",nRPermutation[i]);
+    }
+
+    //Reacomodo de permutadas (Pre-salida)
+    int PreSalida[64];
+    for(int i=0;i<32;i++){
+        PreSalida[i]=rPermutation[i];
+        PreSalida[i+32]=nRPermutation[i];
     }
     return 0;
 }
