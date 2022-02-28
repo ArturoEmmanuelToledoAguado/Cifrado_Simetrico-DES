@@ -24,6 +24,9 @@ int cS4[4][16]={7,13,14,3,0,6,9,10,1,2,8,5,
                 12,11,7,13,15,1,3,14,5,2,8,
                 4,3,15,0,6,10,1,13,8,9,4,5,
                 11,12,7,2,14};
+int tPermutaD[32]={16,7,20,21,29,12,28,17,1,15,23,26,5,18,
+                   31,10,2,8,24,14,32,27,3,9,19,13,30,6,
+                   22,11,4,25};
 
 //Binario a decimal
 unsigned long long binToDec(int *Bin, int tam){
@@ -174,16 +177,18 @@ int main() {
                 func[j]=0;
         }
         //printf("%i %i %i %i\n",func[0],func[1],func[2],func[3]);
-        //Llenamos los 32 bits de la funcion f
+        //Llenamos los 32 bits de la funcion f es decir R
         for(int j=0;j<4;j++){
             function[cont]=func[j];
             cont++;
         }
         z=3;
     }
-
+    //Aplicamos a R la tabla de permutacion directa para obtener Ri,ki
+    int Ri_Ki[32];
     for(int i=0;i<32;i++){
-        printf("%i\n",function[i]);
+        Ri_Ki[i]=function[tPermutaD[i]-1];
+        //printf("%i\n",Ri_Ki[i]);
     }
     return 0;
 }
