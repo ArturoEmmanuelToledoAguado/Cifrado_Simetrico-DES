@@ -27,7 +27,7 @@ int cS4[4][16]={7,13,14,3,0,6,9,10,1,2,8,5,
 
 //Binario a decimal
 unsigned long long binToDec(int *Bin, int tam){
-    unsigned long long decimal=0;
+    int decimal=0;
     int mult=1;//multiplicador
     int caracter;
     for(int i=tam-1;i>=0;i--){
@@ -128,21 +128,23 @@ int main() {
         //printf("%i\n",B[i]);
     }
     //Coordenadas de S4
-    //Separamos filas y columnas
-    int aux[6],auxf[2],auxc[4],cont=0;
+    int aux[6],auxf[2],auxc[4],cont=0,cont2=0;
+    int f[8],c[8];
     for(int i=0;i<48;i++){
         aux[cont]=B[i];
         cont++;
         if(i==5||i==11||i==17||i==23||i==29||i==35||i==41||i==47) {
             for (int j = 0; j < 2; j++)
                 auxf[j] = aux[j * 5];//Obtenemos la Fila
+            f[cont2]=binToDec(auxf,2);
+            //printf("Decimal: %i\n",f[cont2]);
             for (int k = 0; k < 4; k++)
-                auxc[k] = aux[k + 1];//Obtenemos la Columna
+                auxc[k] = aux[k + 1];//Obtenemos la Columnas
+            c[cont2]=binToDec(auxc,4);
+            //printf("DEcimal %i\n",c[cont2]);
             cont=0;
+            cont2++;
         }
     }
-    //Convertimos a decimal
-    int f[8],c[8];
-    unsigned long long d;
     return 0;
 }
