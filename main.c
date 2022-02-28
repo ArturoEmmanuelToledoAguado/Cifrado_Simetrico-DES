@@ -146,5 +146,11 @@ int main() {
             cont2++;
         }
     }
+    //Localizamos los valores en S4
+    int valor=0;
+    for(int i=0;i<8;i++){
+        valor=cS4[f[i]][c[i]];
+        //printf("%i\n",valor);
+    }
     return 0;
 }
