@@ -92,9 +92,11 @@ int main() {
         rPermutation[i]=permutation[i+32];
         //printf("%i\t%i\n",lPermutation[i],rPermutation[i]);
     }
-    //Caja P de Expansión
-    /*for(int i=0;i<48;i++){
-        printf("%i\n ",cPExpansion[i]);
-    }*/
+    //Caja P de Expansión (R_i) de 32 a 48 bits
+    int R_i[48];
+    for(int i=0;i<48;i++){
+        R_i[i]=rPermutation[cPExpansion[i]-1];
+        //printf("%i\n ",R_i[i]);
+    }
     return 0;
 }
