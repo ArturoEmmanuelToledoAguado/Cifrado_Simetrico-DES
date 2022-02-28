@@ -147,10 +147,43 @@ int main() {
         }
     }
     //Localizamos los valores en S4
-    int valor=0;
+    int valor=0,func[4],function[32],z=3;
+    cont=0;
     for(int i=0;i<8;i++){
         valor=cS4[f[i]][c[i]];
         //printf("%i\n",valor);
+        //Dec a Bin
+        if(valor==0){
+            for(int j=0;j<4;j++)
+                func[j]=0;
+        }
+        while(valor>0){
+            func[z]=valor%2;
+            z--;
+            valor=valor/2;
+            //printf("%i\n",z);
+        }
+        //printf("0:%i  1:%i   2:%i   3:%i\n",func[0],func[1],func[2],func[3]);
+        if(z==0){
+            func[z]=0;
+        }else if(z==1){
+            for(int j=0;j<2;j++)
+                func[j]=0;
+        }else if(z==2){
+            for(int j=0;j<3;j++)
+                func[j]=0;
+        }
+        //printf("%i %i %i %i\n",func[0],func[1],func[2],func[3]);
+        //Llenamos los 32 bits de la funcion f
+        for(int j=0;j<4;j++){
+            function[cont]=func[j];
+            cont++;
+        }
+        z=3;
+    }
+
+    for(int i=0;i<32;i++){
+        printf("%i\n",function[i]);
     }
     return 0;
 }
