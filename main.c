@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int pInicial[64]={58,50,42,34,26,18,10,2,60,52,44,36,28,20,
                 12,4,62,54,46,38,30,22,14,6,64,56,48,
@@ -32,6 +33,22 @@ int pFinal[64]={40,8,48,16,56,24,64,32,29,7,47,15,55,23,63,
                 21,61,29,36,4,44,12,52,20,60,28,35,3,43,
                 11,51,19,59,27,34,2,42,10,50,18,58,26,
                 33,1,41,9,49,17,57,25};
+char cero[4]={'0','0','0','0'};
+char uno[4]={'0','0','0','1'};
+char dos[4]={'0','0','1','0'};
+char tres[4]={'0','0','1','1'};
+char cuatro[4]={'0','1','0','0'};
+char cinco[4]={'0','1','0','1'};
+char seis[4]={'0','1','1','0'};
+char siete[4]={'0','1','1','1'};
+char ocho[4]={'1','0','0','0'};
+char nueve[4]={'1','0','0','1'};
+char A[4]={'1','0','1','0'};
+char B[4]={'1','0','1','1'};
+char C[4]={'1','1','0','0'};
+char D[4]={'1','1','0','1'};
+char E[4]={'1','1','1','0'};
+char F[4]={'1','1','1','1'};
 
 //Binario a decimal
 unsigned long long binToDec(int *Bin, int tam){
@@ -48,7 +65,7 @@ unsigned long long binToDec(int *Bin, int tam){
 }
 
 int main() {
-    int entrada[64]={0,0,0,1,0,1,1,0,1,0,1,1,1,1,0,1,
+    /*int entrada[64]={0,0,0,1,0,1,1,0,1,0,1,1,1,1,0,1,
                      0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,
                      0,1,0,1,1,0,1,0,0,0,1,0,1,0,0,
                      1,1,1,0,0,0,1,0,1,0,0,1,1,1,1,
@@ -57,7 +74,97 @@ int main() {
                    1,0,1,1,1,0,1,1,1,0,0,1,1,0,1,
                    1,1,1,0,0,0,0,1,0,1,1,1,0,0,0,
                    1,1,0,0,1,0,0,1,0,0,1,0,1,1,1,
-                   0,1,1};
+                   0,1,1};*/
+
+    //Hexadecimal a binario
+    char entrada[16],entrada2='1';
+    int eBin[64],x=0;
+    printf("Ingrese 16 caracteres Hexadecimales: ");
+    fgets(entrada,17,stdin);
+    printf("%i\n",strlen(entrada));
+    for(int i=0;i<strlen(entrada);i++){
+        if(entrada[i]=='0'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(cero[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='1'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(uno[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='2'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(dos[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='3'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(tres[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='4'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(cuatro[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='5'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(cinco[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='6'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(seis[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='7'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(siete[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='8'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(ocho[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='9'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(nueve[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='A' || entrada[i]=='a'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(A[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='B' || entrada[i]=='b'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(B[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='C' || entrada[i]=='c'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(C[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='D' || entrada[i]=='d'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(D[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='E' || entrada[i]=='e'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(E[j]-'0');
+                x++;
+            }
+        }else if(entrada[i]=='F' || entrada[i]=='f'){
+            for(int j=0;j<4;j++){
+                eBin[x]=(F[j]-'0');
+                x++;
+            }
+        }
+    }
 
     //Permutación
     int permutation[64];
